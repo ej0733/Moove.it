@@ -25,6 +25,12 @@
 
 span.currentExperience {
   position: absolute;
-  top: 12px;
+  top: 24px;
   transform: translateX(-50%);
+  
+  background-color: var(--white);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.075);
+
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
 }
