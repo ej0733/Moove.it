@@ -10,6 +10,7 @@ interface ChallengesContextData {
   challengesCompleted: number;
   experienceToNextLevel: number;
   startNewChallenge: () => void;
+  completeChallenge: () => void;
   resetChallenge: () => void;
   activeChallenge: {
     type: 'body' | 'eye';
@@ -25,12 +26,15 @@ interface ChallengesProviderProps {
 
 export function ChallengesProvider({ children }: ChallengesProviderProps){
   const [level, setLevel] = useState(1);
-  const [currentExperience, setCurrentExperience] = useState(12);
-  const [challengesCompleted, setChallengesCompleted] = useState(1);
+  const [currentExperience, setCurrentExperience] = useState(0);
+  const [challengesCompleted, setChallengesCompleted] = useState(0);
   const [activeChallenge, setActiveChallenge] = useState(null);
   
-  const levelUp = () => setLevel(level + 1);
   const experienceToNextLevel = Math.pow((level + 1) * 3, 2);
+  
+  function levelUp() {
+    setLevel(level + 1)
+  };
   
   function startNewChallenge() {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
@@ -43,7 +47,26 @@ export function ChallengesProvider({ children }: ChallengesProviderProps){
     setActiveChallenge(null);
   }
 
-  const challengeData = {
+  function completeChallenge() {
+    if(!activeChallenge) {
+      return;
+    };
+
+    const { amount } = activeChallenge;
+
+    let finalExperience = currentExperience + amount;
+
+    if (finalExperience >= experienceToNextLevel) {
+      finalExperience = finalExperience - experienceToNextLevel;
+      levelUp();
+    };
+     
+    setCurrentExperience(finalExperience);
+    setActiveChallenge(null);
+    setChallengesCompleted(challengesCompleted + 1);
+  }
+
+  const challengeValues: ChallengesContextData = {
     level,
     levelUp,
     currentExperience,
@@ -52,10 +75,11 @@ export function ChallengesProvider({ children }: ChallengesProviderProps){
     activeChallenge,
     resetChallenge,
     experienceToNextLevel,
+    completeChallenge
   };
 
   return (
-    <ChallengesContext.Provider value={challengeData}>
+    <ChallengesContext.Provider value={challengeValues}>
       { children }
     </ChallengesContext.Provider>
   );
