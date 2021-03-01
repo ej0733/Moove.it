@@ -1,5 +1,8 @@
-# Moove.it
+<p align="center">
+  <img src="public/logo-full.svg" width="512px" height="128px" />
+</p>
 
+# Moove.it
 [Descrição](#descrição) |
 [Tecnologias utilizadas](#tecnologias-utilizadas) |
 [Features em desenvolvimento](#features-em-desenvolvimento) |
@@ -18,7 +21,7 @@ Baseado na técnica de Pomodoro, Moove.it é uma aplicação web para estimular 
 - [x] Incorporar TypeScript ao projeto.
 - [x] Desenvolver a Interface Principal.
 - [x] Desenvolver sistema de nivelação.
-- [ ] Responisividade para dispositivos móveis.
+- [x] Responisividade para dispositivos móveis.
 - [ ] Incorporar Dark Mode.
 - [ ] Implementar PWA.
 - [ ] Autenticação de usuário.
