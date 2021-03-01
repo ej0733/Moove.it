@@ -4,22 +4,21 @@
 }
 
 .experienceBar span {
-  font-size: 1rem;
-
+  font-size: 1.25rem;
 }
 
 .experienceBar > div {
   flex: 1;
-  height: 4px;
-  border-radius: 4px;
+  height: 6px;
+  border-radius: 6px;
   background-color: var(--gray-line);
   margin: 0 1.5rem;
   position: relative;
 }
 
 .experienceBar > div > div {
-  height: 4px;
-  border-radius: 4px;
+  height: 6px;
+  border-radius: 6px;
   background-color: var(--green);
 }
 
@@ -32,5 +31,11 @@ span.currentExperience {
   box-shadow: 0 7px 14px rgba(0, 0, 0, 0.075);
 
   padding: 0.4rem 1rem;
-  border-radius: 1rem;
+  border-radius: 2rem;
+}
+
+@media(max-width: 720px){
+  span.currentExperience {
+    position: relative;
+  }
 }

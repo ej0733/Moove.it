@@ -1,10 +1,19 @@
+@media (max-width: 720px) {
+  .challengeBoxContainer {
+    margin-bottom: 2rem;
+  }
+  .challengeActive main {
+    margin: 2rem 0;
+  }
+}
+
 .challengeBoxContainer {
   height: 100%;
 
   background-color: var(--white);
   border-radius: 10px;
   box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.05);
-  padding:  1.5rem 2rem;
+  padding:  1.5rem;
 
   display: flex;
   flex-direction: column;
